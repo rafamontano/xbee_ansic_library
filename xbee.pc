@@ -1,0 +1,10 @@
+usr_prefix=/usr/local
+libdir=${usr_prefix}/lib
+includedir=${usr_prefix}/include
+
+Name: xbee
+Description: Driver to connect XBee modules
+Version: 1.0.0
+
+Libs: -L${libdir} -lxbee
+Cflags: -I${includedir}/xbee -I${includedir}/wpan -I${includedir}/zigbee -I${includedir} -I${includedir}/ports/posix
