@@ -77,7 +77,7 @@ SRCS += $(wildcard $(SRC)/util/*.c)
 SRCS += $(wildcard $(SRC)/wpan/*.c)
 SRCS += $(wildcard $(SRC)/xbee/*.c)
 SRCS += $(wildcard $(SRC)/zigbee/*.c)
-#SRCS += $(wildcard $(SRC)/mbedtls/*.c)
+SRCS += $(wildcard $(SRC)/mbedtls/*.c)
 SRCS += $(wildcard $(PLATFORM_DIR)/*.c)
 
 OBJS = $(SRCS:.c=.o)
@@ -129,7 +129,7 @@ install:
 	install -d $(INSTALL_HEADERS_DIR)/wpan
 	install -d $(INSTALL_HEADERS_DIR)/xbee $(INSTALL_HEADERS_DIR)/zigbee
 	install -d $(INSTALL_HEADERS_DIR)/ports/posix
-	#install -d $(INSTALL_HEADERS_DIR)/mbedtls
+	install -d $(INSTALL_HEADERS_DIR)/mbedtls
 
 	#install -m 0644 ${S}/src/libxbee.so ${D}${libdir}
 	#install -m 0644 ${S}/src/libxbee.so.1 ${D}${libdir}
@@ -149,7 +149,7 @@ install:
 	install -m 0644 ../include/xbee/*.h $(INSTALL_HEADERS_DIR)/xbee
 	install -m 0644 ../ports/posix/*.h $(INSTALL_HEADERS_DIR)/ports/posix
 	install -m 0644 ../include/zigbee/*.h $(INSTALL_HEADERS_DIR)/zigbee
-	#install -m 0644 ../include/mbedtls/*.h $(INSTALL_HEADERS_DIR)/mbedtls
+	install -m 0644 ../include/mbedtls/*.h $(INSTALL_HEADERS_DIR)/mbedtls
 
 uninstall: 
 	# Uninstall library and pkg-config file.
@@ -163,6 +163,7 @@ uninstall:
 	-rm -f $(INSTALL_HEADERS_DIR)/wpan/*.h
 	-rm -f $(INSTALL_HEADERS_DIR)/xbee/*.h
 	-rm -f $(INSTALL_HEADERS_DIR)/zigbee/*.h
+	-rm -f $(INSTALL_HEADERS_DIR)/mbedtls/*.h
 
 clean:
 	-rm -f $(XBEE_LIBNAME).$(STATIC) $(OBJS) $(SRCS:.c=.d)
